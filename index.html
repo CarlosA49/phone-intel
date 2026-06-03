@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHONE_INTEL — legacy page retired</title>
+    <style>
+        :root { --bg:#03050a; --accent:#00ff41; --accent2:#00bfff; --danger:#ff3860;
+                --warn:#ffb700; --dim:#3a5a44; --text:#9fb4a6; --text2:#d8e8dc; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { background:var(--bg); color:var(--text); min-height:100vh;
+               font-family:'Consolas','SF Mono','Courier New',monospace;
+               display:flex; align-items:center; justify-content:center; padding:24px;
+               background-image:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.18) 3px,rgba(0,0,0,.18) 4px); }
+        .box { max-width:760px; width:100%; background:rgba(10,14,22,.92);
+               border:1px solid #163024; border-radius:14px; padding:34px 30px;
+               box-shadow:0 0 60px rgba(0,255,65,.06); }
+        h1 { color:var(--accent); font-size:1.9rem; letter-spacing:2px;
+             text-shadow:0 0 24px rgba(0,255,65,.5); margin-bottom:6px; }
+        h1 span { color:var(--accent2); }
+        .tag { color:var(--dim); font-size:.72rem; letter-spacing:3px; margin-bottom:22px; }
+        .notice { background:rgba(255,56,96,.07); border:1px solid rgba(255,56,96,.28);
+                  border-radius:9px; padding:16px 18px; margin-bottom:22px; }
+        .notice b { color:var(--danger); letter-spacing:1px; }
+        .notice p { margin-top:8px; font-size:.86rem; color:var(--text2); line-height:1.5; }
+        h2 { color:var(--text2); font-size:.8rem; letter-spacing:2px; margin:20px 0 10px; }
+        ul { list-style:none; }
+        li { font-size:.86rem; margin:7px 0; padding-left:20px; position:relative; line-height:1.45; }
+        li::before { content:'›'; position:absolute; left:2px; color:var(--accent); }
+        li.no::before { content:'✗'; color:var(--danger); }
+        code { background:#05080d; border:1px solid #163024; border-radius:5px;
+               padding:2px 8px; color:var(--accent); font-size:.82rem; display:inline-block; }
+        .cta { display:inline-block; margin-top:18px; background:var(--accent); color:#001400;
+               text-decoration:none; padding:13px 26px; border-radius:8px; font-weight:700;
+               letter-spacing:2px; font-size:.9rem; transition:.2s; }
+        .cta:hover { background:#00e039; box-shadow:0 0 30px rgba(0,255,65,.4); }
+        .foot { margin-top:24px; color:var(--dim); font-size:.68rem; letter-spacing:1px; line-height:1.5; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>&gt;_ PHONE<span>_INTEL</span></h1>
+        <div class="tag">LEGACY DEMO PAGE · RETIRED</div>
+
+        <div class="notice">
+            <b>⚠ This page used to fabricate fake owner names.</b>
+            <p>The original "SMS Locator" demo invented a random "SUBSCRIBER NAME"
+            for every number and presented it as a real lookup. A phone number
+            cannot reveal its owner's identity, so that feature was deceptive and
+            has been removed. Any tool claiming to show a stranger's name or live
+            location from their number is a scam, a breach-data broker, or malware.</p>
+        </div>
+
+        <h2>✅ WHAT THE REAL TOOL SHOWS (honest, from the number)</h2>
+        <ul>
+            <li>Country &amp; calling code · <b>registration</b> region (e.g. "San Francisco, CA")</li>
+            <li>Carrier / network operator · line type (mobile / VoIP / landline…)</li>
+            <li>Validity, every number format, timezone &amp; live local clock</li>
+        </ul>
+
+        <h2>❌ WHAT IT WILL NEVER DO</h2>
+        <ul>
+            <li class="no">Identify the owner's name or address</li>
+            <li class="no">Track a person's real-time / live location</li>
+        </ul>
+        <p style="font-size:.8rem; color:var(--dim); margin-top:8px;">
+            "Region" always means where the number is <i>registered</i>, never where the holder currently is.</p>
+
+        <h2>▶ RUN THE REAL TOOL</h2>
+        <ul>
+            <li>Web terminal: <code>python web/app.py</code> then open <code>http://127.0.0.1:5000</code></li>
+            <li>Terminal (TUI): <code>python -m phone_intel +14155552671</code></li>
+        </ul>
+
+        <a class="cta" href="http://127.0.0.1:5000">↗ OPEN WEB TERMINAL (if running)</a>
+
+        <div class="foot">If the button 404s, start the server first with <code>run_web.bat</code>
+            (or <code>python web/app.py</code>). This static page is kept only to explain why the
+            old fake-owner demo is gone — it does no lookups itself.</div>
+    </div>
+</body>
+</html>

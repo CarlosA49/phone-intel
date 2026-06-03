@@ -1,0 +1,5 @@
+phonenumbers>=9.0
+rich>=13.0
+flask>=3.0
+qrcode>=7.0
+requests>=2.31

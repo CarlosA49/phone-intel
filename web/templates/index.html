@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHONE_INTEL :: Number Recon Terminal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/leaflet.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <canvas id="matrix"></canvas>
+
+    <!-- Scan overlay -->
+    <div class="scan-overlay" id="scanOverlay">
+        <div class="scan-box">
+            <div class="scan-title" id="scanTitle">◈ INITIATING RECON ◈</div>
+            <div class="scan-progress"><div class="bar" id="scanBar"></div></div>
+            <div class="scan-status" id="scanStatus">booting...</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">&gt;_ PHONE<span>_INTEL</span></div>
+            <div class="subtitle">NUMBER RECON TERMINAL · v{{ version }} · REGISTRATION METADATA ONLY</div>
+            <div class="disclaimer">no owner identification · no live person tracking · region = where the number is registered</div>
+        </header>
+
+        <section class="search-card">
+            <h2><span class="blink">▮</span> TARGET NUMBER</h2>
+            <div class="input-row">
+                <input id="phoneInput" type="text" placeholder="+14155552671  (E.164, include country code)"
+                       autocomplete="off" autofocus spellcheck="false" />
+                <button id="searchBtn">SCAN</button>
+            </div>
+            <div class="hints" id="hints"></div>
+            <label class="livetoggle"><input type="checkbox" id="liveChk"> live enrich (needs server API key)</label>
+            <label class="livetoggle"><input type="checkbox" id="spamChk"> fraud/spam DB (needs server API key)</label>
+            <div class="err" id="errMsg"></div>
+        </section>
+
+        <section class="result-card" id="resultCard">
+            <div class="res-header">
+                <span class="num" id="resNum"></span>
+                <span class="badge" id="resBadge">—</span>
+            </div>
+            <div class="res-body">
+                <div class="grid" id="infoGrid"></div>
+            </div>
+            <div class="risk-bar" id="riskBar"></div>
+            <div class="map-wrap" id="mapWrap">
+                <div class="map-title">▣ REGISTRATION REGION MAP <span class="map-note">— country centroid, NOT a person</span></div>
+                <div id="map"></div>
+            </div>
+            <div class="actions">
+                <button id="copyBtn" class="ghost">⧉ COPY JSON</button>
+                <button id="dlBtn" class="ghost">⤓ EXPORT JSON</button>
+                <a id="telLink" class="ghost" href="#">☎ tel: LINK</a>
+            </div>
+        </section>
+
+        <footer class="footer">PHONE_INTEL · honest OSINT · powered by libphonenumber · no data stored</footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='vendor/leaflet.js') }}"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

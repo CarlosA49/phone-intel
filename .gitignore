@@ -1,0 +1,41 @@
+# ─── Secret sauce / private (NEVER publish) ───────────────────────────
+phone_intel/_live_private.py
+.env
+.env.*
+*.key
+*.pem
+secrets.*
+*credentials*
+
+# ─── gstack session state (contains a local auth token) ───────────────
+.gstack/
+**/.gstack/
+
+# ─── Python build / cache ─────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# ─── Tool output / exports (user-generated lookups) ───────────────────
+out_*.json
+out_*.vcf
+out_*.png
+intel_*.json
+qr_*.png
+*_batch.csv
+
+# ─── OS / editor ──────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
