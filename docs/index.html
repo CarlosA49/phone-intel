@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHONE_INTEL :: Live Number Recon (client-side)</title>
+    <meta name="description" content="Hacker-themed phone-number intelligence — country, validity, line type, formats, offline map. Runs entirely in your browser. No owner ID, no live tracking.">
+    <link rel="stylesheet" href="vendor/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        .lite-banner {
+            max-width: 980px; margin: 14px auto 0; padding: 11px 16px;
+            background: rgba(0,191,255,0.06); border: 1px solid rgba(0,191,255,0.22);
+            border-radius: 9px; color: #9fc7d8; font-size: .74rem; line-height: 1.5;
+            font-family: 'Consolas','Courier New',monospace;
+        }
+        .lite-banner b { color: #00bfff; }
+        .lite-banner a { color: #00ff41; text-decoration: none; }
+        .lite-banner a:hover { text-decoration: underline; }
+        .tile .val.dim { color: #5a6f60; font-style: italic; font-size: .82rem; }
+    </style>
+</head>
+<body>
+    <canvas id="matrix"></canvas>
+
+    <div class="scan-overlay" id="scanOverlay">
+        <div class="scan-box">
+            <div class="scan-title">◈ INITIATING RECON ◈</div>
+            <div class="scan-progress"><div class="bar" id="scanBar"></div></div>
+            <div class="scan-status" id="scanStatus">booting...</div>
+        </div>
+    </div>
+
+    <div class="lite-banner">
+        <b>▣ CLIENT-SIDE LIVE DEMO.</b> Everything runs in your browser via libphonenumber-js —
+        no server, no network calls, nothing stored. Shows country, validity, line type, formats &amp; an offline map.
+        <b>Carrier, city-level region &amp; per-number timezone need the full app</b> (Python) and are deliberately not faked here.
+        Source &amp; full tool: <a href="https://github.com/CarlosA49/phone-intel" target="_blank" rel="noopener">github.com/CarlosA49/phone-intel</a>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">&gt;_ PHONE<span>_INTEL</span></div>
+            <div class="subtitle">NUMBER RECON TERMINAL · LIVE · REGISTRATION METADATA ONLY</div>
+            <div class="disclaimer">no owner identification · no live person tracking · region = where the number is registered</div>
+        </header>
+
+        <section class="search-card">
+            <h2><span class="blink">▮</span> TARGET NUMBER</h2>
+            <div class="input-row">
+                <input id="phoneInput" type="text" placeholder="+14155552671  (E.164, include country code)"
+                       autocomplete="off" autofocus spellcheck="false" />
+                <button id="searchBtn">SCAN</button>
+            </div>
+            <div class="hints" id="hints"></div>
+            <div class="err" id="errMsg"></div>
+        </section>
+
+        <section class="result-card" id="resultCard">
+            <div class="res-header">
+                <span class="num" id="resNum"></span>
+                <span class="badge" id="resBadge">—</span>
+            </div>
+            <div class="res-body">
+                <div class="grid" id="infoGrid"></div>
+            </div>
+            <div class="risk-bar" id="riskBar"></div>
+            <div class="map-wrap" id="mapWrap">
+                <div class="map-title">▣ REGISTRATION COUNTRY MAP <span class="map-note">— country centroid, NOT a person</span></div>
+                <div id="map"></div>
+            </div>
+            <div class="actions">
+                <button id="copyBtn" class="ghost">⧉ COPY JSON</button>
+                <button id="dlBtn" class="ghost">⤓ EXPORT JSON</button>
+                <a id="telLink" class="ghost" href="#">☎ tel: LINK</a>
+            </div>
+        </section>
+
+        <footer class="footer">PHONE_INTEL · honest OSINT · client-side · powered by libphonenumber-js · no data stored ·
+            <a href="https://github.com/CarlosA49/phone-intel" style="color:#3a5a44">source on GitHub</a></footer>
+    </div>
+
+    <script src="vendor/leaflet.js"></script>
+    <script src="vendor/libphonenumber-max.js"></script>
+    <script src="countries.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
