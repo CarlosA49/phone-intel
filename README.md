@@ -6,6 +6,11 @@ legitimately derivable from the number itself**: the country and region it's
 local time there. Terminal (TUI) **and** web interfaces, both powered by one
 honest Python engine.
 
+> **🌐 Live browser demo:** **https://carlosa49.github.io/phone-intel/** — a
+> client-side version, no install. It shows country, validity, line type, formats
+> and an offline map. The full app below adds carrier, precise registration
+> region, per-number timezone, and the optional fraud database.
+
 ```
  ___ __  __ ___    _    ___  ___   _ _____ ___  ___
 / __|  \/  / __|  | |  / _ \/ __| /_\_   _/ _ \| _ \
