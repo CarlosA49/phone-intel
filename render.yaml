@@ -1,0 +1,10 @@
+# Render blueprint — free Flask deploy of the full phone_intel web app.
+# One-click: https://render.com/deploy?repo=https://github.com/CarlosA49/phone-intel
+services:
+  - type: web
+    name: phone-intel
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt gunicorn
+    startCommand: gunicorn --chdir web app:app --bind 0.0.0.0:$PORT
+    autoDeploy: true

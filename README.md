@@ -101,6 +101,28 @@ centered on the **registration region** (clearly labelled "not a person"), a
 heuristic risk chip, and JSON copy/export. The browser is a thin client — the
 same Python engine does the real work via `/api/lookup`.
 
+## 🚀 Deploy the full app for free (optional)
+
+The [live demo](https://carlosa49.github.io/phone-intel/) is client-side. To put
+the **full Python app** online — real carrier, precise registration region, and
+per-number timezone, everything the engine computes — deploy the Flask app. The
+repo is deploy-ready (`render.yaml` + `Procfile`, gunicorn).
+
+**Render (free, ~1 click):**
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/CarlosA49/phone-intel)
+
+1. Click the button (or render.com → **New → Blueprint** → pick this repo).
+2. Render reads `render.yaml`, builds, and gives you an `https://…onrender.com` URL.
+3. Free instances sleep after ~15 min idle (first request then takes ~50s to wake).
+
+Works on any `Procfile` host (Railway, Koyeb, …). For an always-on free option,
+Hugging Face Spaces (Docker) also works.
+
+> The deployed public app does **not** include the private live-API module, so
+> `--live` / `--spam` stay disabled there — your secret sauce never leaves your
+> machine. The full offline engine (country, region, carrier, timezone) runs.
+
 ## 🧠 Features
 
 - **Real data** via Google's libphonenumber: country, region, carrier, line type, timezone, validity.
